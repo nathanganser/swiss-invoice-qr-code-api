@@ -20,34 +20,37 @@ and pass a JSON with the following parameters:
 
 ```json
 {
-  "language": "en",
-  "logo_url": "https://...",
-  "file_name": "test.pdf",
-  "invoice_number": 11,
-  "invoice_date": "30/06/2022",
-  "vat_enabled": true,
-  "vat_percentage": 0.025,
-  "vat_number": "CHE-kjkj",
-  "user_details": {
-    "name": "Nathan",
-    "address": "Rue de la gare 1",
-    "zip": "1000",
-    "city": "Lausanne",
-    "iban": "CH12 1234 1234 1234 1234 1"
-  },
-  "customer_details": {
-    "name": "Nathan",
-    "address": "Rue de la gare 1",
-    "zip": "1000",
-    "city": "Lausanne"
-  },
-  "invoice_items": [
-    {
-      "description": "Test",
-      "quantity": 1.5,
-      "unit_price": 100.50
+"data": {
+        "uuid": "random",
+        "language": "en",
+        "logo_url": "https://...",
+        "file_name": "test.pdf",
+        "invoice_number": 11,
+        "invoice_date": "30/06/2022",
+        "vat_enabled": true,
+        "vat_percentage": 0.025,
+        "vat_number": "CHE-kjkj",
+        "user_details": {
+            "name": "Nathan",
+            "address": "Rue de la gare 1",
+            "zip": "1000",
+            "city": "Lausanne",
+            "iban": "CH12 1234 1234 1234 1234 1"
+        },
+        "customer_details": {
+            "name": "Nathan",
+            "address": "Rue de la gare 1",
+            "zip": "1000",
+            "city": "Lausanne"
+        },
+        "invoice_items": [
+            {
+                "description": "Test",
+                "quantity": 1.5,
+                "unit_price": 100.50
+            }
+        ]
     }
-  ]
 }
 ```
 
@@ -64,6 +67,7 @@ You can choose to ignore all VAT related parameters to generate an invoice witho
 ```json
 {
   "data": {
+    "uuid": "random",
     "language": "fr",
     "file_name": "invoice.pdf",
     "invoice_number": 1,
@@ -107,6 +111,7 @@ You can choose to ignore all VAT related parameters to generate an invoice witho
 
 #### Optional Parameters
 
+- `uuid` (string): An optional id of the file.
 - `language` (string): The language of the invoice. Can be fr, de, it, or en. Defaults to en if not specified.
 - `logo_url` (string): A URL to the logo of the business who issued the invoice. Defaults to the Magic Heidi logo if not specified.
 
