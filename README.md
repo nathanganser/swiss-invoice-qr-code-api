@@ -264,7 +264,8 @@ axios(config)
 
 ### Java OkRest
 
-```OkHttpClient client = new OkHttpClient().newBuilder()
+```
+OkHttpClient client = new OkHttpClient().newBuilder()
   .build();
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, "{\n    \"data\": {\n        \"language\": \"fr\",\n        \"file_name\": \"test.pdf\",\n        \"invoice_number\": 11,\n        \"invoice_date\": \"30/06/2022\",\n        \"vat_enabled\": true,\n        \"vat_percentage\": 2.5,\n        \"vat_number\": \"CHE-kjkj\",\n        \"user_details\": {\n            \"name\": \"Nathan\",\n            \"address\": \"Rue de la gare 1\",\n            \"zip\": \"1000\",\n            \"city\": \"Lausanne\",\n            \"iban\": \"CH0700700112900411647\"\n        },\n        \"customer_details\": {\n            \"name\": \"Nathan\",\n            \"address\": \"Rue de la gare 1\",\n            \"zip\": \"1000\",\n            \"city\": \"Lausanne\"\n        },\n        \"invoice_items\": [\n            {\n                \"description\": \"Test\",\n                \"quantity\": 1.5,\n                \"unit_price\": 100.50\n            }\n        ]\n    }\n} ");
