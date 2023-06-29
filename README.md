@@ -1,5 +1,5 @@
 
-# Magic Heidi API Documentation
+# Swiss Invoice with QR Code Generator: Magic Heidi API Documentation
 ![example of an invoice](https://files.umso.co/lib_rsaIjJoefXOkuYaf/ufg3jsia9jjb11px.png)
 
 At Magic Heidi, we've been developing a cross platform invoicing solution for Switzerland. Our aim is to enable all Swiss IT providers and make it as easy as possible for everyone to generate invoices. 
