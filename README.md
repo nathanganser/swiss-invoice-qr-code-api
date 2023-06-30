@@ -20,22 +20,22 @@ and pass a JSON with the following parameters:
 
 ```json
 {
-"data": {
-        "uuid": "random",
-        "language": "en",
-        "logo_url": "https://...",
-        "file_name": "test.pdf",
+    "data": {
+        "uuid": "866e9906-ef01-49e2-b09f-fc6a07c1b884",
+        "logo_url": "https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png",
+        "language": "fr",
+        "file_name": "test",
         "invoice_number": 11,
-        "invoice_date": "30/06/2022",
+        "invoice_date": "2020-07-19T18:00:00.000Z",
         "vat_enabled": true,
-        "vat_percentage": 0.025,
+        "vat_percentage": 2.5,
         "vat_number": "CHE-kjkj",
         "user_details": {
             "name": "Nathan",
             "address": "Rue de la gare 1",
             "zip": "1000",
             "city": "Lausanne",
-            "iban": "CH12 1234 1234 1234 1234 1"
+            "iban": "CH0700700112900411647"
         },
         "customer_details": {
             "name": "Nathan",
@@ -54,65 +54,68 @@ and pass a JSON with the following parameters:
 }
 ```
 
-The response will be a JSON with a `result` value that contains the URL:
+### API Response
 
-```json
-{ "result": "https://.../file.pdf" }
-```
-
-### Generate an invoice without VAT
-
-You can choose to ignore all VAT related parameters to generate an invoice without VAT. Here is an example:
+The response will be a JSON with a `uid` value, a `url` that contains the link to the file and an `expires` value that gives you the time at which the file will expire (24 hours after creation):
 
 ```json
 {
-  "data": {
-    "uuid": "random",
-    "language": "fr",
-    "file_name": "invoice.pdf",
-    "invoice_number": 1,
-    "invoice_date": "30/06/2022",
-    "user_details": {
-      "name": "Nathan",
-      "address": "Rue de la gare 1",
-      "zip": "1000",
-      "city": "Lausanne",
-      "iban": "CH0700700112900411647"
-    },
-    "customer_details": {
-      "name": "Nathan",
-      "address": "Rue de la gare 1",
-      "zip": "1000",
-      "city": "Lausanne"
-    },
-    "invoice_items": [
-      {
-        "description": "Test",
-        "quantity": 1.5,
-        "unit_price": 100.50
-      }
-    ]
-  }
+  "uid": "866e9906-ef01-49e2-b09f-fc6a07c1b884",
+  "url": "https://storage.googleapis.com/magic-heidi.appspot.com/{uid}/{file_name}.pdf",
+  "expires": 1688139484461
+}
+```
+
+### Generate a minimal invoice
+
+You can choose to ignore all VAT related parameters, logo parameters and some more to generate a basic invoice. Here is an example with only the mandatory parameters:
+
+```json
+{
+    "data": {
+        "language": "fr",
+        "file_name": "test",
+        "invoice_number": 11,
+        "invoice_date": "2020-07-19T18:00:00.000Z",
+        "user_details": {
+            "name": "Nathan",
+            "address": "Rue de la gare 1",
+            "zip": "1000",
+            "city": "Lausanne",
+            "iban": "CH0700700112900411647"
+        },
+        "customer_details": {
+            "name": "Nathan",
+            "address": "Rue de la gare 1",
+            "zip": "1000",
+            "city": "Lausanne"
+        },
+        "invoice_items": [
+            {
+                "description": "Test",
+                "quantity": 1.5,
+                "unit_price": 100.50
+            }
+        ]
+    }
 }
 ```
 
 ### Parameters Description
 
 #### Mandatory Parameters
-
-- `file_name` (string): The name of the file.
+- `language` (string): The language of the invoice. Can be fr, de, it, or en.
 - `invoice_number` (integer): This is mentioned in the invoice.
-- `invoice_date` (string): A date for the invoice in the format: 30/06/2022.
+- `invoice_date` (string): A date for the invoice in ISO format: `2020-07-19T18:00:00.000Z` for example.
 - `user_details` (string): Contains all the details of the user who is issuing the invoice; name, address, zip, city, iban.
 - `customer_details` (string): Similar to user_details but without the iban. Contains all the information of the invoice recipient, the
-
  one who's paying the invoice: name, address, zip, city.
 - `invoice_items` (array): A list of the invoice items, each invoice item is composed of a description (string), quantity (float), and unit_price (float).
 
 #### Optional Parameters
 
-- `uuid` (string): An optional id of the file.
-- `language` (string): The language of the invoice. Can be fr, de, it, or en. Defaults to en if not specified.
+- `uuid` (string): An optional id of the file. Will be generated randomly if not specified.
+- `file_name` (string): The name of the file. Defaults to invoice.pdf.
 - `logo_url` (string): A URL to the logo of the business who issued the invoice. Defaults to the Magic Heidi logo if not specified.
 
 #### Optional VAT Parameters
