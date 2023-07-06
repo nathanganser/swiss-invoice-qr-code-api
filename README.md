@@ -54,7 +54,8 @@ and pass a JSON with the following parameters:
 }
 ```
 
-### API Response
+
+### API Response
 
 #### Success: Link to the invoice in PDF format
 
