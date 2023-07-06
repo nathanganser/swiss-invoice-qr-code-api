@@ -55,9 +55,9 @@ and pass a JSON with the following parameters:
 ```
 
 
-### API Response
+## API Response
 
-#### Success: Link to the invoice in PDF format
+### Success: Link to the invoice in PDF format
 
 The response will be a JSON with a `uid` value, a `url` that contains the link to the file and an `expires` value that gives you the time at which the file will expire (24 hours after creation):
 
@@ -69,8 +69,8 @@ The response will be a JSON with a `uid` value, a `url` that contains the link t
 }
 ```
 
-#### Errors
-##### 422 Somewthing wrong with your data
+### Errors
+#### 422 Somewthing wrong with your data
 In case something is wrong with the data you pass to the api, you'll get a 422 error response that will look like that.
 ```json
 {
@@ -89,10 +89,10 @@ or
 }
 ```
 
-##### 500 Internal server error
+#### 500 Internal server error
 If something breaks on our end, we'll return a 500 error. Those are monitored internally and we will fix them proactively. But you can of course reach out to us at hello@magicheidi.ch with the timestamp at which the error occured and we'll be able to fix it for you.
 
-##### 400 Bad request
+#### 400 Bad request
 If the request you sent is missing a json in the body, or if the json is in an invalid format, we'll return a default error like this.
 ```html
 <!DOCTYPE html>
@@ -108,7 +108,7 @@ If the request you sent is missing a json in the body, or if the json is in an i
 ```
 
 
-### Generate a minimal invoice
+## Generate a minimal invoice
 
 You can choose to ignore all VAT related parameters, logo parameters and some more to generate a basic invoice. Here is an example with only the mandatory parameters:
 
@@ -139,16 +139,16 @@ You can choose to ignore all VAT related parameters, logo parameters and some mo
 }
 ```
 
-### Parameters Description
+## Parameters Description
 Everything you need to know about the parameters and options. The parameters below need to be within the `data` json dict. See examples above. 
 
-#### Mandatory Parameters
+### Mandatory Parameters
 - `user_details` (string): Contains all the details of the user who is issuing the invoice; name, address, zip, city, iban.
 - `customer_details` (string): Similar to user_details but without the iban. Contains all the information of the invoice recipient, the
  one who's paying the invoice: name, address, zip, city.
 - `invoice_items` (array): A list of the invoice items, each invoice item is composed of a description (string), quantity (float), and unit_price (float).
 
-#### Optional Parameters
+### Optional Parameters
 - `invoice_number` (integer): The number of the invoice. Will default to 1.
 - `invoice_date` (string): A date for the invoice in ISO format: `2020-07-19T18:00:00.000Z` for example. Will default to the current time in Switzerland.
 - `language` (string): The language of the invoice. Can be fr, de, it, or en. Will default to en.
@@ -156,7 +156,7 @@ Everything you need to know about the parameters and options. The parameters bel
 - `file_name` (string): The name of the file. Defaults to invoice.pdf.
 - `logo_url` (string): A URL to the logo of the business who issued the invoice. Defaults to the Magic Heidi logo if not specified.
 
-#### Optional VAT Parameters
+### Optional VAT Parameters
 
 - `vat_enabled` (boolean): True or false. If true, then the following two parameters are required.
 - `vat_percentage` (float): Usually 0.077 (for most invoices) or 0.025 (for food products).
