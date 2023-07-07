@@ -54,6 +54,16 @@ and pass a JSON with the following parameters:
 }
 ```
 
+## Authentification
+You can test the API for free and do not need to use any authentification. Once you're ready, you can request an API key at hello@magicheidi.ch. 
+
+You can then pass the api key in the header as follows:
+- key: `key`
+- value: `<your_api_key>`
+
+Here is how this would look in Postman for example:
+![postman magic heidi authentification api key](https://files.umso.co/lib_rsaIjJoefXOkuYaf/cprf4a7pofujxa6d.png)
+
 
 ## API Response
 
@@ -70,7 +80,7 @@ The response will be a JSON with a `uid` value, a `url` that contains the link t
 ```
 
 ### Errors
-#### 422 Somewthing wrong with your data
+#### 422 Something wrong with your data
 In case something is wrong with the data you pass to the api, you'll get a 422 error response that will look like that.
 ```json
 {
