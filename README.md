@@ -13,7 +13,7 @@ For any queries, please feel free to email us at hello@magicheidi.ch.
 To use our API, send a POST request to the following URL:
 
 ```
-https://europe-west6-magic-heidi.cloudfunctions.net/createAbstractInvoice
+https://europe-west6-magic-heidi.cloudfunctions.net/create_invoice_abstract_v1c
 ```
 
 and pass a JSON with the following parameters:
@@ -165,6 +165,8 @@ Everything you need to know about the parameters and options. The parameters bel
 - `uuid` (string): An optional id of the file. Will be generated randomly if not specified.
 - `file_name` (string): The name of the file. Defaults to invoice.pdf.
 - `logo_url` (string): A URL to the logo of the business who issued the invoice. Defaults to the Magic Heidi logo if not specified.
+- `description` (string): An additional text field (to add additional information such a payment deadlines, payment conditions and more. The text will appear below the invoice items table.
+- `qr_reference` (string): To add a payment reference to the payment QR slip. Generally used to allow for an easy payment identification by accounting software.
 
 ### Optional VAT Parameters
 
