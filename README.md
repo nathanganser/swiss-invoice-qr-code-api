@@ -13,7 +13,7 @@ For any queries, please feel free to email us at hello@magicheidi.ch.
 To use our API, send a POST request to the following URL:
 
 ```
-https://europe-west6-magic-heidi.cloudfunctions.net/create_invoice_abstract_v1c
+https://europe-west6-magic-heidi.cloudfunctions.net/create_invoice_abstract_v1d
 ```
 
 and pass a JSON with the following parameters:
