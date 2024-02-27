@@ -167,6 +167,7 @@ Everything you need to know about the parameters and options. The parameters bel
 - `logo_url` (string): A URL to the logo of the business who issued the invoice. Defaults to the Magic Heidi logo if not specified.
 - `description` (string): An additional text field (to add additional information such a payment deadlines, payment conditions and more. The text will appear below the invoice items table.
 - `qr_reference` (string): To add a payment reference to the payment QR slip. Generally used to allow for an easy payment identification by accounting software.
+- `currency` (string): To select the currency of the invoice. `EUR` or `CHF`. Defaults to `CHF` if left empty.
 
 ### Optional VAT Parameters
 
