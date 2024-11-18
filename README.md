@@ -183,7 +183,7 @@ Everything you need to know about the parameters and options. The parameters bel
 import requests
 import json
 
-url = "https://europe-west6-magic-heidi.cloudfunctions.net/createAbstractInvoice"
+url = "https://europe-west6-magic-heidi.cloudfunctions.net/create_invoice_abstract_v1d"
 
 payload = json.dumps({
   "data": {
@@ -225,7 +225,7 @@ print(response.text)
 ### cURL Example
 
 ```bash
-curl --location --request POST 'https://europe-west6-magic-heidi.cloudfunctions.net/createAbstractInvoice' \
+curl --location --request POST 'https://europe-west6-magic-heidi.cloudfunctions.net/create_invoice_abstract_v1d' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "data": {
@@ -300,7 +300,7 @@ var data = JSON.stringify({
 
 var config = {
   method: 'post',
-  url: 'https://europe-west6-magic-heidi.cloudfunctions.net/createAbstractInvoice',
+  url: 'https://europe-west6-magic-heidi.cloudfunctions.net/create_invoice_abstract_v1d',
   headers: { 
     'Content-Type': 'application/json'
   },
@@ -324,7 +324,7 @@ OkHttpClient client = new OkHttpClient().newBuilder()
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, "{\n    \"data\": {\n        \"language\": \"fr\",\n        \"file_name\": \"test.pdf\",\n        \"invoice_number\": 11,\n        \"invoice_date\": \"30/06/2022\",\n        \"vat_enabled\": true,\n        \"vat_percentage\": 2.5,\n        \"vat_number\": \"CHE-kjkj\",\n        \"user_details\": {\n            \"name\": \"Nathan\",\n            \"address\": \"Rue de la gare 1\",\n            \"zip\": \"1000\",\n            \"city\": \"Lausanne\",\n            \"iban\": \"CH0700700112900411647\"\n        },\n        \"customer_details\": {\n            \"name\": \"Nathan\",\n            \"address\": \"Rue de la gare 1\",\n            \"zip\": \"1000\",\n            \"city\": \"Lausanne\"\n        },\n        \"invoice_items\": [\n            {\n                \"description\": \"Test\",\n                \"quantity\": 1.5,\n                \"unit_price\": 100.50\n            }\n        ]\n    }\n} ");
 Request request = new Request.Builder()
-  .url("https://europe-west6-magic-heidi.cloudfunctions.net/createAbstractInvoice")
+  .url("https://europe-west6-magic-heidi.cloudfunctions.net/create_invoice_abstract_v1d")
   .method("POST", body)
   .addHeader("Content-Type", "application/json")
   .build();
