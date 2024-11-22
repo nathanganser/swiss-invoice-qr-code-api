@@ -168,6 +168,7 @@ Everything you need to know about the parameters and options. The parameters bel
 - `description` (string): An additional text field (to add additional information such a payment deadlines, payment conditions and more. The text will appear below the invoice items table.
 - `qr_reference` (string): To add a payment reference to the payment QR slip. Generally used to allow for an easy payment identification by accounting software.
 - `currency` (string): To select the currency of the invoice. `EUR` or `CHF`. Defaults to `CHF` if left empty.
+- `message` (string) Max 140 characters that you can add to the payment. Will be encoded in the QR code and passed with the payment. Usually used for payment references.
 
 ### Optional VAT Parameters
 
@@ -230,6 +231,7 @@ curl --location --request POST 'https://europe-west6-magic-heidi.cloudfunctions.
 --data-raw '{
     "data": {
         "language": "fr",
+        "message": "Payment reference",
         "file_name": "test.pdf",
         "invoice_number": 11,
         "invoice_date": "30/06/2022",
